@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="l-content">
-            <el-button plain icon="el-icon-menu" size="mini"></el-button>
+            <el-button @click="handleMenu" plain icon="el-icon-menu" size="mini"></el-button>
             <h3 style="color: #fff">首页</h3>
         </div>
         <div class="r-content">
@@ -26,8 +26,14 @@ export default {
       return {
           userImg:require('../assets/images/user.png')
       }
-  }
+  },
+   methods: {
+       handleMenu(){
+           this.$store.commit('collapseMenu')
+       }
 }
+}
+ 
 </script>
 
 <style lang="less" scoped>
@@ -43,12 +49,12 @@ header {
     .el-button {
         margin-right: 20px;
     }
+}
 .r-content{
     .user{
         width: 40px;
         height: 40px;
         border-radius: 50%;
     }
-}
 }
 </style>
